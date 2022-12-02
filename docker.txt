@@ -1,0 +1,2 @@
+// docker ps -a | grep my-app
+// docker exec -it DOCKER_ID /bin/sh lub /bin/bash

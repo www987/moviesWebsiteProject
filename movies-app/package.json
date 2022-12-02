@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-express-restAPI",
+  "version": "1.0.0",
+  "description": "Node.js Rest Apis with Express, MySQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon -L index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest",
+    "api",
+    "mysql"
+  ],
+  "author": "",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.6",
+    "express-handler": "^0.2.0",
+    "mysql2": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
