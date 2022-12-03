@@ -1,0 +1,156 @@
+<div style="position: absolute; top: 30%;" id="modal_9" class="msg-modification modal">
+    <div class="msg-modification-wrapper">
+        <span>
+            Powiązanie zostało zmodyfikowane!
+        </span>
+        <div class="msg-modification-btn-enter">
+            <a style="display: block; width: 76.4%" href="./wyszukiwarka_filmow.html">
+                OK
+            </a>
+        </div>
+    </div>
+</div>
+<div class="form">
+    <div style="top: 3.9%;" id="modal_5" class="form-wrapper modal">
+        <form action="#modal_9" class="form-el invalid-connecting-class">
+            <h2>Edytuj powiązanie studio-film</h2>
+            <p>
+                <label for="id_wf_p_v">
+                    <span>Id wytwórni filmowej: *</span>
+                    <input style="width: 144px;" type="number" id="id_wf_p_v" name="id_wf_p_v" value="5" min="1"
+                        max="200000" required>
+                    <span class="invalid_field id_wf_p_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="id_f_p_v">
+                    <span>Id filmu: *</span>
+                    <input style="width: 144px;" type="number" id="id_f_p_v" name="id_f_p_v" value="11" min="1"
+                        max="200000" required>
+                    <span class="invalid_field id_f_p_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="main_studio_v">
+                    <span>Czy to jest główne studio?:</span>
+                    <input type="checkbox" id="main_studio_v" name="main_studio_v" checked>
+                </label>
+            </p>
+            <p>
+                <label for="displayed_from_v">
+                    <span>Wyświetlane od: *</span>
+                    <input type="date" id="displayed_from_v" name="displayed_from_v" value="2012-12-19" required>
+                    <span class="invalid_field displayed_from_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="displayed_to_v">
+                    <span>Wyświetlane do: *</span>
+                    <input type="date" id="displayed_to_v" name="displayed_to_v" value="2012-12-29" required>
+                    <span class="invalid_field displayed_to_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p style="height: 3px;">
+                <span style="position: relative; top: -15px; font-size: 12px;">* pole wymagane</span>
+            </p>
+            <div class="invalid_field st-summary">Formularz zawiera błędy</div>
+            <button class="btn">Zatwierdź</button>
+            <a class="exit" href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">X</a>
+        </form>
+    </div>
+</div>
+<div class="list">
+    <div class="list-wrapper">
+        <div class="title-list choose">
+            <h2>Wyszukiwarka filmów</h2>
+            <div class="studio-choose-btn">
+                <button>Szukaj</button>
+            </div>
+            <form class="studio_choose">
+                <p>
+                    <label for="studio_choose">
+                        <span>Wybierz wytwórnię filmową:</span>
+                        <select name="studio_choose" id="studio_choose">
+                            <option value="5">Paramount Pictures</option>
+                            <option value="1">Warner Bros. Pictures</option>
+                            <option value="2">20th Century Fox</option>
+                            <option value="3">DreamWorks Pictures</option>
+                            <option value="4">Universal Pictures</option>
+                        </select>
+                    </label>
+                </p>
+                <p style="display: inline-block; padding-right: 0;">
+                    <label for="from_date">
+                        <span>Filmy wyświetlane od:</span>
+                        <input type="date" id="from_date" name="from_date" required>
+                    </label>
+                </p>
+                <p style="display: inline-block; padding-left: 0;">
+                    <label for="to_date">
+                        <span>do:</span>
+                        <input type="date" id="to_date" name="to_date" required>
+                    </label>
+                </p>
+                <p>
+                    <label for="sort_">
+                        <span>Sortuj od:</span>
+                        <select name="sort_" id="sort_">
+                            <option value="0">najstarszych</option>
+                            <option value="1">najnowszych</option>
+                        </select>
+                    </label>
+                </p>
+            </form>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th class="company">Wytwórnia filmowa</th>
+                    <th class="film">Film</th>
+                    <th class="release-date">Data premiery</th>
+                    <th class="button"></th>
+                    <th class="button"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a style="width: 100%; height: 100%; display: block;"
+                            href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">
+                            1
+                        </a>
+                    </td>
+                    <td class="company">
+                        <a style="width: 100%; height: 100%; display: block;"
+                            href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">
+                            Paramount Pictures
+                        </a>
+                    </td>
+                    <td class="film">
+                        <a style="width: 100%; height: 100%; display: block;"
+                            href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">
+                            Jack Reacher: Jednym strzałem
+                        </a>
+                    </td>
+                    <td class="release-date">
+                        <a style="width: 100%; height: 100%; display: block;"
+                            href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">
+                            19 grudnia 2012
+                        </a>
+                    </td>
+                    <td class="modify-btn">
+                        <a href="#modal_5">
+                            <img src="../icons/edit_FILL0_wght400_GRAD0_opsz48.svg" alt="Edytuj">
+                        </a>
+                    </td>
+                    <td class="remove-btn">
+                        <a href="#modal_3">
+                            <img src="../icons/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="Modyfikuj">
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
