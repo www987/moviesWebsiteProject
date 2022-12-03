@@ -1,10 +1,9 @@
 // Server configurations
 const express = require("express");
-const mysql = require('mysql2');
 const hbs = require('express-handlebars');
 const bodyParser = require("body-parser");
 const app = express();
-const con = require("/mysql.js")
+const con = require("./mysql")
 
 
 con.connect(function(err) {
@@ -12,11 +11,7 @@ con.connect(function(err) {
   console.log("Connected to database!");
 });
 let query
-con.query(query, (err,result) =>{
-  if(err) throw err;
-  items = result;
-  console.log(items);
-});
+
 
 app.use(express.static('/movies-app/'));
 app.engine('hbs', hbs.engine({

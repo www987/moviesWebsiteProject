@@ -1,93 +1,93 @@
 module.exports ={
-    studio_film:[
+    film:[
         {
             "ID":1,
             "title":"Więźniowie nieba",
-            "release_date": "17-05-1996",
+            "release_date": "1996-05-17",
             "numbers_of_actors":15,
         },
         {
             "ID":2,
             "title":"Uśpieni",
-            "release_date": "07-02-1997",
+            "release_date": "1997-02-07",
             "numbers_of_actors":8,
         },
         {
             "ID":3,
             "title":"Infiltracja",
-            "release_date": "06-10-2006",
+            "release_date": "2006-10-06",
             "numbers_of_actors":13,
         },
         {
             "ID":4,
             "title":"Miasto złodziei",
-            "release_date": "08-09-2010",
+            "release_date": "2010-09-08",
             "numbers_of_actors":11,
         },
         {
             "ID":5,
             "title":"Księgowy",
-            "release_date": "10-10-2016",
+            "release_date": "2016-10-10",
             "numbers_of_actors":7,
         },
         {
             "ID":6,
             "title":"Bez litości",
-            "release_date": "26-09-2014",
+            "release_date": "2014-09-26",
             "numbers_of_actors":17,
         },
         {
             "ID":7,
             "title":"Wilk z Wall Street",
-            "release_date": "03-01-2014",
+            "release_date": "2014-01-03",
             "numbers_of_actors":18,
         },
         {
             "ID":8,
             "title":"Jack Reacher: Jednym strzałem",
-            "release_date": "19-12-2012",
+            "release_date": "2012-12-19",
             "numbers_of_actors":14,
         },
         {
             "ID":9,
             "title":"Mission: Impossible Rogue Nation",
-            "release_date": "07-08-2015",
+            "release_date": "2015-08-07",
             "numbers_of_actors":11,
         },
         {
             "ID":10,
             "title":"Mission: Impossible – Fallout",
-            "release_date": "10-08-2018",
+            "release_date": "2018-08-10",
             "numbers_of_actors":11,
         },
         {
             "ID":11,
             "title":"Ciche miejsce 2",
-            "release_date": "28-05-2021",
+            "release_date": "2021-05-28",
             "numbers_of_actors":14,
         },
         {
             "ID":12,
             "title":"Krzyk",
-            "release_date": "14-01-2022",
+            "release_date": "2022-01-14",
             "numbers_of_actors":9,
         },
         {
             "ID":13,
             "title":"Top Gun:Maverick",
-            "release_date": "27-05-2022",
+            "release_date": "2022-05-27",
             "numbers_of_actors":9,
         },
         {
             "ID":14,
             "title":"Mad Max:Na drodze gniewu",
-            "release_date": "22-05-2015",
+            "release_date": "2015-05-22",
             "numbers_of_actors":16,
         },
         {
             "ID":15,
             "title":"Kac Vegas",
-            "release_date": "07-08-2009",
+            "release_date": "2009-08-07",
             "numbers_of_actors":16,
         }
     ],
@@ -96,35 +96,35 @@ module.exports ={
             "ID": 1,
             "name": "Paramount Pictures",
             "adress": "Hollywood, Los Angeles, Kalifornia, Stany Zjednoczone",
-            "founded": "08-05-1912",
+            "founded": "1912-05-08",
             "closed": ""
         },
         {
             "ID": 2,
             "name": "20th Century Fox",
             "adress": "Los Angeles, Kalifornia, Stany Zjednoczone",
-            "founded": "31 maja 1935",
+            "founded": "1935-05-31",
             "closed": ""
         },
         {
             "ID": 3,
             "name": "DreamWorks Pictures",
             "adress": "Universal City, Kalifornia, Stany Zjednoczone",
-            "founded": "12-10-1994",
+            "founded": "1994-10-12",
             "closed": ""
         },
         {
             "ID": 4,
             "name": "Universal Pictures",
             "adress": "10 Universal City Plaza",
-            "founded": "10-05-1912",
+            "founded": "1912-05-10",
             "closed": ""
         },
         {
             "ID": 5,
             "name": "Warner Bros. Pictures",
             "adress": "Burbank, Kalifornia, Stany Zjednoczone",
-            "founded": "4 kwietnia 1923",
+            "founded": "1923-04-04",
             "closed": ""
         },
         {
