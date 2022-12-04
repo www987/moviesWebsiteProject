@@ -97,93 +97,98 @@ module.exports ={
             "name": "Paramount Pictures",
             "adress": "Hollywood, Los Angeles, Kalifornia, Stany Zjednoczone",
             "founded": "1912-05-08",
-            "closed": ""
+            "closed": null
         },
         {
             "ID": 2,
             "name": "20th Century Fox",
             "adress": "Los Angeles, Kalifornia, Stany Zjednoczone",
             "founded": "1935-05-31",
-            "closed": ""
+            "closed": null
         },
         {
             "ID": 3,
             "name": "DreamWorks Pictures",
             "adress": "Universal City, Kalifornia, Stany Zjednoczone",
             "founded": "1994-10-12",
-            "closed": ""
+            "closed": null
         },
         {
             "ID": 4,
             "name": "Universal Pictures",
             "adress": "10 Universal City Plaza",
             "founded": "1912-05-10",
-            "closed": ""
+            "closed": null
         },
         {
             "ID": 5,
             "name": "Warner Bros. Pictures",
             "adress": "Burbank, Kalifornia, Stany Zjednoczone",
             "founded": "1923-04-04",
-            "closed": ""
+            "closed": null
         },
         {
             "ID": 6,
             "name": "Savoy Pictures",
             "adress": "Stany Zjednoczone",
             "founded": "1992-10-05",
-            "closed": "1997"
+            "closed": "1997-02-02"
         },
         {
             "ID": 7,
             "name": "New Line Cinema",
             "adress": "Burbank, Kalifornia, Stany Zjednoczone",
-            "founded": "1967-18-06",
-            "closed": ""
+            "founded": "1967-10-06",
+            "closed": null
         },
         {
             "ID": 8,
             "name": "Skydance Productions",
             "adress": "Santa Monica, Kalifornia, Stany Zjednoczone",
             "founded": "2006-04-04",
-            "closed": ""
+            "closed": null
         },
         {
             "ID": 9,
             "name": "TC Productions",
             "adress": "Stany Zjednoczone",
             "founded": "2007-10-10",
-            "closed": ""
+            "closed": null
         }
     ],
     studio_film:[
         {
             "studio_id":1,
             "film_id":8,
+            "main_studio": 0,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         },
         {
             "studio_id":1,
             "film_id":9,
+            "main_studio": 0,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         },
         {
             "studio_id":1,
             "film_id":10,
+            "main_studio": 0,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         },
         {
             "studio_id":1,
             "film_id":11,
+            "main_studio": 0,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         },
         {
             "studio_id":1,
             "film_id":12,
+            "main_studio": 0,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         }
