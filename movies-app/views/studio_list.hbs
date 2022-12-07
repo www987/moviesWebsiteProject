@@ -1,0 +1,233 @@
+<script>
+    function fillStudioData(e) {
+        let studioID = e.parentElement.querySelector(".id > a").innerHTML;
+        let studioName = e.parentElement.querySelector(".name > a").innerHTML;
+        let studioAddress = e.parentElement.querySelector(".address > a").innerHTML;
+        let studioFounded = e.parentElement.querySelector(".founded > a").innerHTML;
+        let studioClosed = e.parentElement.querySelector(".closed > a").innerHTML;
+        document.querySelector("#id_name_v").value = studioID;
+        document.querySelector("#studio_name_v").value = studioName;
+        document.querySelector("#studio_address_v").value = studioAddress;
+        document.querySelector("#studio_founded_v").value = studioFounded;
+        document.querySelector("#studio_closed_v").value = studioClosed;
+    }
+    function fillID(e) {
+        let studioID = e.parentElement.querySelector(".id > a").innerHTML;
+        let modal3 = document.querySelector("#modal_3 > div > span").innerHTML = "Czy na pewno chcesz usunąć rekord: " + studioID + "?";
+    }
+    function removeItem(e) {
+        let studioID = e.parentElement.parentElement.querySelector("span").innerHTML.replace(/\D/g, "");
+        console.log(studioID);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./lista_wytworni_filmowych.html", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            ID: studioID
+        }));
+    }
+</script>
+<div class="form">
+    <div style="top: 12.5%;" id="modal_1" class="form-wrapper modal">
+        <form action="/lista_wytworni_filmowych.html/add" class="form-el invalid-studio-class" method="POST">
+            <h2>Dodaj studio</h2>
+            <p>
+                <label for="studio_name_a">
+                    <span>Nazwa studia: *</span>
+                    <input type="text" id="studio_name_a" name="studio_name" minlength="1" maxlength="20" required>
+                    <span class="invalid_field st_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="studio_adress_a">
+                    <span>Adres studia: *</span>
+                    <input type="text" id="studio_address_a" name="studio_address" minlength="1" maxlength="20" required>
+                    <span class="invalid_field st_adress">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="studio_founded_a">
+                    <span>Data założenia: *</span>
+                    <input type="date" id="studio_founded_a" name="studio_founded" required>
+                    <span class="invalid_field st_founded">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="studio_closed_a">
+                    <span>Data zamknięcia:</span>
+                    <input type="date" id="studio_closed_a" name="studio_closed">
+                </label>
+            </p>
+            <p style="height: 3px;">
+                <span style="position: relative; top: -15px; font-size: 12px;">* pole wymagane</span>
+            </p>
+            <div class="invalid_field st_summary">Formularz zawiera błędy</div>
+            <button class="btn">Zatwierdź</button>
+            <a class="exit" href="./lista_wytworni_filmowych.html">X</a>
+        </form>
+    </div>
+</div>
+<div style="position: absolute; top: 30%;" id="modal_7" class="msg-modification modal">
+    <div class="msg-modification-wrapper">
+        <span>
+            Rekord został zmodyfikowany!
+        </span>
+        <div class="msg-modification-btn-enter">
+            <a style="display: block; width: 76.4%" href="./lista_wytworni_filmowych.html">
+                OK
+            </a>
+        </div>
+    </div>
+</div>
+<div style="position: absolute; top: 30%;" id="modal_8" class="msg-modification modal">
+    <div class="msg-modification-wrapper">
+        <span>
+            Wprowadzono niepoprawne dane. Popraw je i edytuj ponownie.
+        </span>
+        <div class="msg-modification-btn-enter">
+            <a style="display: block; width: 76.4%" href="./lista_wytworni_filmowych.html">
+                OK
+            </a>
+        </div>
+    </div>
+</div>
+<div style="position: absolute; top: 30%;" id="modal_6" class="msg-confirmation-add modal">
+    <div class="msg-confirmation-add-wrapper">
+        <span>
+            Rekord został dodany!
+        </span>
+        <div class="msg-confirmation-btn-enter">
+            <a style="display: block; width: 76.4%" href="./lista_wytworni_filmowych.html">
+                OK
+            </a>
+        </div>
+    </div>
+</div>
+<div style="top:35%" id="modal_4" class="msg-remove modal">
+    <div class="msg-remove-wrapper">
+        <span>
+            Rekord usunięto!
+        </span>
+        <div class="msg-remove-btn">
+            <a style="display: block; width: 76.5%; height: 100%;" href="./lista_wytworni_filmowych.html">
+                OK
+            </a>
+        </div>
+    </div>
+</div>
+<div style="top: 35%" id="modal_3" class="msg-remove-confirmation modal">
+    <div class="msg-remove-confirmation-wrapper">
+        <span>
+            Czy na pewno chcesz usunąć rekord: 1?
+        </span>
+        <div class="msg-remove-confirmation-btn-agree">
+            <a style="width: 40%; display: block;" href="#modal_4" onclick="removeItem(this)">
+                TAK
+            </a>
+        </div>
+        <div class="msg-remove-confirmation-btn-disagree">
+            <a style="width: 40%; display: block;" href="./lista_wytworni_filmowych.html">
+                NIE
+            </a>
+        </div>
+    </div>
+</div>
+<div class="form">
+    <div style="top: 12.5%;" id="modal_5" class="form-wrapper modal">
+        <form action="/lista_wytworni_filmowych.html/edit" method="POST" class="form-el invalid-studio-class">
+            <h2>Edytuj studio</h2>
+            <p>
+                <label for="id_name_v">
+                    <span>ID: *</span>
+                    <input type="text" id="id_name_v" name="id_name_v" value="sss" readonly
+                        style="background-color: #e7e7e7;">
+                </label>
+            </p>
+            <p>
+                <label for="studio_name_v">
+                    <span>Nazwa studia: *</span>
+                    <input type="text" id="studio_name_v" name="studio_name_v" minlength="1" maxlength="20"
+                        value="Paramount Pictures" required>
+                    <span class="invalid_field st_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="studio_address_v">
+                    <span>Adres studia: *</span>
+                    <input type="text" id="studio_address_v" name="studio_address_v" minlength="1" maxlength="20"
+                        value="Hollywood, Los Angeles, Kalifornia, Stany Zjednoczone" required>
+                    <span class="invalid_field st_address">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="studio_founded_v">
+                    <span>Data założenia: *</span>
+                    <input type="date" id="studio_founded_v" name="studio_founded_v" value="1912-05-08" required>
+                    <span class="invalid_field st_founded">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="studio_closed_v">
+                    <span>Data zamknięcia:</span>
+                    <input type="date" id="studio_closed_v" name="studio_closed_v">
+                </label>
+            </p>
+            <p style="height: 3px;">
+                <span style="position: relative; top: -15px; font-size: 12px;">* pole wymagane</span>
+            </p>
+            <div class="invalid_field st_summary">Formularz zawiera błędy</div>
+            <button class="btn">Zatwierdź</button>
+            <a class="exit" href="/lista_wytworni_filmowych.html">X</a>
+        </form>
+    </div>
+</div>
+<div class="list">
+    <div class="list-wrapper">
+        <div class="title-list">
+            <h2>Lista wytwórni filmowych</h2>
+            <div class="btn-dodaj-studio">
+                <a style="left: 340px; font-size: 18px; font-weight: 800; background: #f0f0f0; width: 20px; height: 20px; text-align: center;"
+                    href="#modal_1">
+                    +
+                </a>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th class="name">Nazwa</th>
+                    <th class="address">Adres</th>
+                    <th class="founded">Data założenia</th>
+                    <th class="closed">Data zamknięcia</th>
+                    <th class="buttons"></th>
+                    <th class="buttons"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                <tr>
+                    <td class="id"><a href="./lista_wytworni_filmowych_widok_szczegolowy.html">{{id}}</a></td>
+                    <td class="name"><a href="./lista_wytworni_filmowych_widok_szczegolowy.html">{{name}}</a>
+                    </td>
+                    <td class="address"><a href="./lista_wytworni_filmowych_widok_szczegolowy.html">{{address}}</a></td>
+                    <td class="founded"><a
+                            href="./lista_wytworni_filmowych_widok_szczegolowy.html">{{#removeDate}}{{founded}}{{/removeDate}}</a>
+                    </td>
+                    <td class="closed">{{#removeDate}}{{closed}}{{/removeDate}}<a
+                            href="./lista_wytworni_filmowych_widok_szczegolowy.html"></a></td>
+                    <td class="modify-btn" onclick="fillStudioData(this)">
+                        <a href="#modal_5">
+                            <img src="../icons/edit_FILL0_wght400_GRAD0_opsz48.svg" alt="Edytuj">
+                        </a>
+                    </td>
+                    <td class="remove-btn" onclick="fillID(this)">
+                        <a href="#modal_3">
+                            <img src="../icons/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="Modyfikuj">
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

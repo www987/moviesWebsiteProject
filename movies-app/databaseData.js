@@ -158,37 +158,42 @@ module.exports ={
     ],
     studio_film:[
         {
+            "id:":1,
             "studio_id":1,
             "film_id":8,
-            "main_studio": 0,
+            "main_studio": 1,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         },
         {
+            "id:":2,
             "studio_id":1,
             "film_id":9,
-            "main_studio": 0,
+            "main_studio": 2,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         },
         {
+            "id:":3,
             "studio_id":1,
             "film_id":10,
-            "main_studio": 0,
+            "main_studio": 3,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         },
         {
+            "id:":4,
             "studio_id":1,
             "film_id":11,
-            "main_studio": 0,
+            "main_studio": 4,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         },
         {
+            "id:":5,
             "studio_id":1,
             "film_id":12,
-            "main_studio": 0,
+            "main_studio": 1,
             "displayed_from":"2010-02-02",
             "displayed_to":"2010-05-02"
         }

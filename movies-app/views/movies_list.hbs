@@ -1,0 +1,262 @@
+<script>
+    function fillMovieData(e) {
+        console.log(e, e.parentElement, e.parentElement.querySelector(".release-date"));
+        let movieID = e.parentElement.querySelector(".id").innerHTML;
+        let movieTitle= e.parentElement.querySelector(".title > a").innerHTML;
+        let movieReleaseDate= e.parentElement.querySelector(".release-date > a").innerHTML;
+        let movieActorsNumber = e.parentElement.querySelector(".actors-number > a").innerHTML;
+        document.querySelector("#id_name_v").value = movieID;
+        document.querySelector("#film_name_v").value = movieTitle.trim();
+        document.querySelector("#release_date_v").value = movieReleaseDate.trim();
+        document.querySelector("#actors_number_v").value = movieActorsNumber.trim();
+    }
+    function fillID(e) {
+        let movieID = e.parentElement.querySelector(".id").innerHTML;
+        let modal3 = document.querySelector("#modal_3 > div > span").innerHTML = "Czy na pewno chcesz usunąć rekord: " + movieID + "?";
+    }
+    function removeItem(e) {
+        // We use replace to get only numbers
+        let movieID = e.parentElement.parentElement.querySelector("span").
+        innerHTML.replace(/\D/g, ""); 
+        console.log(movieID);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "./lista_filmow", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            ID: movieID
+        }));
+    }
+</script>
+<div style="position: absolute; top: 30%;" id="modal_8" class="msg-modification modal">
+    <div class="msg-modification-wrapper">
+        <span>
+            Wprowadzono niepoprawne dane. Popraw je i edytuj ponownie.
+        </span>
+        <div class="msg-modification-btn-enter">
+            <a style="display: block; width: 76.4%" href="./lista_wytworni_filmowych.html">
+                OK
+            </a>
+        </div>
+    </div>
+</div>
+<div style="position: absolute; top: 60%;" id="modal_7" class="msg-modification modal">
+    <div class="msg-modification-wrapper">
+        <span>
+            Rekord został zmodyfikowany!
+        </span>
+        <div class="msg-modification-btn-enter">
+            <a style="display: block; width: 76.4%" href="./lista_filmow.html">
+                OK
+            </a>
+        </div>
+    </div>
+</div>
+<div style="position: absolute; top: 60%;" id="modal_6" class="msg-confirmation-add modal">
+    <div class="msg-confirmation-add-wrapper">
+        <span>
+            Rekord został dodany!
+        </span>
+        <div class="msg-confirmation-btn-enter">
+            <a style="display: block; width: 76.4%" href="./lista_filmow.html">
+                OK
+            </a>
+        </div>
+    </div>
+</div>
+<div style="position: absolute; top: 60%;" id="modal_4" class="msg-remove modal">
+    <div class="msg-remove-wrapper">
+        <span>
+            Rekord usunięto!
+        </span>
+        <div class="msg-remove-btn">
+            <a style="display: block; width: 76.5%; height: 100%;" href="./lista_filmow.html">
+                OK
+            </a>
+        </div>
+    </div>
+</div>
+<div style="position:absolute; top: 60%;" id="modal_3" class="msg-remove-confirmation modal">
+    <div class="msg-remove-confirmation-wrapper">
+        <span>
+            Czy na pewno chcesz usunąć rekord?
+        </span>
+        <div class="msg-remove-confirmation-btn-agree">
+            <a style="width: 40%; display: block;" href="#modal_4" onclick="removeItem(this)">
+                TAK
+            </a>
+        </div>
+        <div class="msg-remove-confirmation-btn-disagree">
+            <a style="width: 40%; display: block;" href="./lista_filmow.html">
+                NIE
+            </a>
+        </div>
+    </div>
+</div>
+<div class="form">
+    <div style="top:20%;" id="modal_5" class="form-wrapper modal">
+        <form action="/lista_filmow.html/edit" class="form-el invalid-film-class" method="POST">
+            <h2>Edytuj film</h2>
+            <p>
+                <label for="id_name_v">
+                    <span>ID: *</span>
+                    <input type="text" id="id_name_v" name="id_name_v" value="sss" readonly
+                        style="background-color: #e7e7e7;">
+                </label>
+            </p>
+            <p>
+                <label for="film_name_v">
+                    <span>Tytuł filmu: *</span>
+                    <input type="text" id="film_name_v" name="film_name_v" minlength="1" maxlength="20"
+                        value="Więźniowie nieba" required autofocus>
+                    <span class="invalid_field f_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="release_date_v">
+                    <span>Data premiery: *</span>
+                    <input type="date" id="release_date_v" name="release_date_v" value="1996-05-17" required>
+                    <span class="invalid_field r_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="actors_number_v">
+                    <span>Liczba aktorów: *</span>
+                    <input type="number" id="actors_number_v" name="actors_number_v" min="1" max="20" value="15"
+                        required>
+                    <span class="invalid_field an_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p style="height: 3px;">
+                <span style="position: relative; top: -15px; font-size: 12px;">* pole wymagane</span>
+            </p>
+            <div class="invalid_field st_summary">Formularz zawiera błędy</div>
+            <button class="btn">Zatwierdź</button>
+            <a class="exit" href="./lista_filmow.html">X</a>
+        </form>
+    </div>
+</div>
+<div class="form">
+    <div style="top:20%;" id="modal_2" class="form-wrapper modal">
+        <form action="#modal_7" class="form-el invalid-film-class">
+            <h2>Edytuj film</h2>
+            <p>
+                <label for="film_name">
+                    <span>Tytuł filmu: *</span>
+                    <input type="text" id="film_name" name="film_name" minlength="1" maxlength="20" required>
+                    <span class="invalid_field f_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="release_date">
+                    <span>Data premiery: *</span>
+                    <input type="date" id="release_date" name="release_date" required>
+                    <span class="invalid_field r_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="actors_number">
+                    <span>Liczba aktorów: *</span>
+                    <input type="number" id="actors_number" name="actors_number" min="1" max="20" required>
+                    <span class="invalid_field an_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p style="height: 3px;">
+                <span style="position: relative; top: -15px; font-size: 12px;">* pole wymagane</span>
+            </p>
+            <div class="invalid_field st_summary">Formularz zawiera błędy</div>
+            <button class="btn">Zatwierdź</button>
+            <a class="exit" href="./lista_filmow.html">X</a>
+        </form>
+    </div>
+</div>
+<div class="form">
+    <div style="top:20%;" id="modal_1" class="form-wrapper modal">
+        <form action="/lista_filmow.html/add" method="POST" class="form-el invalid-film-class">
+            <h2>Dodaj film</h2>
+            <p>
+                <label for="film_name_a">
+                    <span>Tytuł filmu: *</span>
+                    <input type="text" id="film_name_a" name="film_name" minlength="1" maxlength="20" required>
+                    <span class="invalid_field f_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="release_date_a">
+                    <span>Data premiery: *</span>
+                    <input type="date" id="release_date_a" name="release_date" required>
+                    <span class="invalid_field r_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p>
+                <label for="actors_number_a">
+                    <span>Liczba aktorów: *</span>
+                    <input type="number" id="actors_number_a" name="actors_number" min="1" max="20" required>
+                    <span class="invalid_field an_name">To pole jest niepoprawne</span>
+                </label>
+            </p>
+            <p style="height: 3px;">
+                <span style="position: relative; top: -15px; font-size: 12px;">* pole wymagane</span>
+            </p>
+            <div class="invalid_field st_summary">Formularz zawiera błędy</div>
+            <button class="btn">Zatwierdź</button>
+            <a class="exit" href="./lista_filmow.html">X</a>
+        </form>
+    </div>
+</div>
+<div class="list">
+    <div class="list-wrapper">
+        <div class="title-list films">
+            <h2>Lista filmów</h2>
+            <div class="btn-dodaj-film">
+                <a style="font-size: 18px; font-weight: 800; background: #f0f0f0; width: 20px; height: 20px; text-align: center;"
+                    href="#modal_1">
+                    +
+                </a>
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th class="title">Tytuł</th>
+                    <th class="release-date">Data premiery</th>
+                    <th class="actors-number">Liczba aktorów</th>
+                    <th class="buttons"></th>
+                    <th class="buttons"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each items}}
+                <tr>
+                    <td class="id">{{id}}</td>
+                    <td class="title">
+                        <a href="">
+                            {{title}}
+                        </a>
+                    </td>
+                    <td class="release-date">
+                        <a>
+                            {{#removeDate}}{{release_date}}{{/removeDate}}
+                        </a>
+                    </td>
+                    <td class="actors-number">
+                        <a>
+                            {{numbers_of_actors}}
+                        </a>
+                    </td>
+                    <td class="modify-btn" onclick="fillMovieData(this)">
+                        <a href="#modal_5">
+                            <img src="../icons/edit_FILL0_wght400_GRAD0_opsz48.svg" alt="Edytuj">
+                        </a>
+                    </td>
+                    <td class="remove-btn" onclick="fillID(this)">
+                        <a href="#modal_3">
+                            <img src="../icons/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="Modyfikuj">
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

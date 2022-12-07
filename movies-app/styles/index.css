@@ -421,7 +421,7 @@ tbody .remove-btn:hover {
     padding: 4px;
 }
 
-.studio-choose-btn > button {
+.studio-choose-btn > input {
     padding: 10px;
     border: none;
     box-shadow: 1px 2px 4px grey;
@@ -561,7 +561,7 @@ tbody .remove-btn:hover {
 }
 
 .st_name,
-.st_adress,
+.st_address,
 .st_founded,
 .st_closed,
 .f_name,
@@ -593,9 +593,9 @@ tbody .remove-btn:hover {
 #studio_name:valid + .st_name,
 #studio_name_v:valid + .st_name,
 #studio_name_a:valid + .st_name,
-#studio_adress:valid + .st_adress,
-#studio_adress_v:valid + .st_adress,
-#studio_adress_a:valid + .st_adress,
+#studio_address:valid + .st_address,
+#studio_address_v:valid + .st_address,
+#studio_address_a:valid + .st_address,
 #studio_founded:valid + .st_founded,
 #studio_founded_v:valid + .st_founded,
 #studio_founded_a:valid + .st_founded,

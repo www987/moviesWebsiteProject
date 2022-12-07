@@ -1,10 +1,39 @@
+<div style="position:absolute; top: 33%;" id="modal_3" class="msg-remove-confirmation modal">
+    <div class="msg-remove-confirmation-wrapper">
+        <span>
+            Czy na pewno chcesz usunąć rekord?
+        </span>
+        <div class="msg-remove-confirmation-btn-agree">
+            <a style="width: 40%; display: block;" href="#modal_4" onclick=removeItem(this)>
+                TAK
+            </a>
+        </div>
+        <div class="msg-remove-confirmation-btn-disagree">
+            <a style="width: 40%; display: block;" href="#modal_0">
+                NIE
+            </a>
+        </div>
+    </div>
+</div>
 <div style="position: absolute; top: 30%;" id="modal_9" class="msg-modification modal">
+                <div class="msg-modification-wrapper">
+                    <span>
+                        Powiązanie zostało zmodyfikowane!
+                    </span>
+                    <div class="msg-modification-btn-enter">
+                        <a style="display: block; width: 76.4%" href="./wyszukiwarka_filmow.html">
+                            OK
+                        </a>
+                    </div>
+                </div>
+            </div>
+<div style="position: absolute; top: 30%;" id="modal_8" class="msg-modification modal">
     <div class="msg-modification-wrapper">
         <span>
-            Powiązanie zostało zmodyfikowane!
+            Wprowadzono niepoprawne dane. Popraw je i edytuj ponownie.
         </span>
         <div class="msg-modification-btn-enter">
-            <a style="display: block; width: 76.4%" href="./wyszukiwarka_filmow.html">
+            <a style="display: block; width: 76.4%" href="./lista_wyszukiwania_filmow.html">
                 OK
             </a>
         </div>
@@ -12,8 +41,15 @@
 </div>
 <div class="form">
     <div style="top: 3.9%;" id="modal_5" class="form-wrapper modal">
-        <form action="#modal_9" class="form-el invalid-connecting-class">
+        <form action="wyszukiwarka_filmow.html/edit" method="POST" class="form-el invalid-connecting-class">
             <h2>Edytuj powiązanie studio-film</h2>
+            <p>
+                <label for="id_name_v">
+                    <span>ID: *</span>
+                    <input type="text" id="id_name_v" name="id_name_v" value="sss" readonly
+                        style="background-color: #e7e7e7;">
+                </label>
+            </p>
             <p>
                 <label for="id_wf_p_v">
                     <span>Id wytwórni filmowej: *</span>
@@ -55,7 +91,7 @@
             </p>
             <div class="invalid_field st-summary">Formularz zawiera błędy</div>
             <button class="btn">Zatwierdź</button>
-            <a class="exit" href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">X</a>
+            <a class="exit" href="#modal0">X</a>
         </form>
     </div>
 </div>
@@ -63,43 +99,30 @@
     <div class="list-wrapper">
         <div class="title-list choose">
             <h2>Wyszukiwarka filmów</h2>
-            <div class="studio-choose-btn">
-                <button>Szukaj</button>
-            </div>
-            <form class="studio_choose">
+
+            <form class="studio_choose" method="GET" action="/wyszukiwarka_filmow.html">
                 <p>
                     <label for="studio_choose">
                         <span>Wybierz wytwórnię filmową:</span>
                         <select name="studio_choose" id="studio_choose">
-                            <option value="5">Paramount Pictures</option>
-                            <option value="1">Warner Bros. Pictures</option>
-                            <option value="2">20th Century Fox</option>
-                            <option value="3">DreamWorks Pictures</option>
-                            <option value="4">Universal Pictures</option>
                         </select>
                     </label>
                 </p>
                 <p style="display: inline-block; padding-right: 0;">
                     <label for="from_date">
                         <span>Filmy wyświetlane od:</span>
-                        <input type="date" id="from_date" name="from_date" required>
+                        <input type="date" id="from_date" name="from_date" required value="1900-10-10">
                     </label>
                 </p>
                 <p style="display: inline-block; padding-left: 0;">
                     <label for="to_date">
                         <span>do:</span>
-                        <input type="date" id="to_date" name="to_date" required>
+                        <input type="date" id="to_date" name="to_date" required value="2020-10-10">
                     </label>
                 </p>
-                <p>
-                    <label for="sort_">
-                        <span>Sortuj od:</span>
-                        <select name="sort_" id="sort_">
-                            <option value="0">najstarszych</option>
-                            <option value="1">najnowszych</option>
-                        </select>
-                    </label>
-                </p>
+                <div class="studio-choose-btn">
+                    <input type="submit" value="Szukaj" onclick="createRows(this)">
+                </div>
             </form>
         </div>
         <table>
@@ -112,45 +135,118 @@
                     <th class="button"></th>
                     <th class="button"></th>
                 </tr>
+
             </thead>
             <tbody>
+                {{#each movies}}
                 <tr>
-                    <td>
+                    <td class="id">
                         <a style="width: 100%; height: 100%; display: block;"
-                            href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">
-                            1
+                            href="">
+                            {{id}}
                         </a>
                     </td>
                     <td class="company">
                         <a style="width: 100%; height: 100%; display: block;"
-                            href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">
-                            Paramount Pictures
+                            href="">
+                            {{name}}
                         </a>
                     </td>
                     <td class="film">
                         <a style="width: 100%; height: 100%; display: block;"
-                            href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">
-                            Jack Reacher: Jednym strzałem
+                            href="">
+                            {{title}}
                         </a>
                     </td>
                     <td class="release-date">
                         <a style="width: 100%; height: 100%; display: block;"
-                            href="./wyszukiwarka_widok_szczegolowy_przyklad_dla_1_rekordu.html">
-                            19 grudnia 2012
+                            href="">
+                            {{#removeDate}}{{release_date}}{{/removeDate}}
                         </a>
                     </td>
-                    <td class="modify-btn">
+                    <td class="modify-btn" onclick="fillMovieData(this)">
                         <a href="#modal_5">
                             <img src="../icons/edit_FILL0_wght400_GRAD0_opsz48.svg" alt="Edytuj">
                         </a>
                     </td>
-                    <td class="remove-btn">
+                    <td class="remove-btn" onclick="fillID(this)">
                         <a href="#modal_3">
                             <img src="../icons/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="Modyfikuj">
                         </a>
                     </td>
                 </tr>
+                {{/each}}
             </tbody>
         </table>
     </div>
 </div>
+<script defer>
+    function createOptions() {
+        let query = "SELECT name, id FROM studio";
+        let selectBox = document.getElementById("studio_choose");
+        let option;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                aaa = JSON.parse(xhttp.responseText);
+                for (i = 0; i < aaa.length; i++) {
+                    option = document.createElement("option");
+                    option.value = aaa[i].id;
+                    option.innerHTML = aaa[i].name;
+                    selectBox.appendChild(option);
+                }
+            }
+        };
+        xhttp.open("GET", "/wyszukiwarka_filmow.html/options", true);
+        xhttp.send();
+    }
+    window.onload = createOptions();
+
+    function removeItem(e) {
+        // We use replace to get only numbers
+        let connectionID = e.parentElement.parentElement.querySelector("span").
+            innerHTML.replace(/\D/g, "");
+        console.log(connectionID);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/wyszukiwarka_filmow.html/delete", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            ID: connectionID
+        }));
+    }
+    function fillID(e) {
+        let movieID = e.parentElement.querySelector(".id > a").innerHTML;
+        let modal3 = document.querySelector("#modal_3 > div > span").innerHTML = "Czy na pewno chcesz usunąć rekord: " + movieID.trim() + "?";
+    }
+    function fillMovieData(e) {
+        let mainID = e.parentElement.querySelector(".id > a").innerHTML;
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/wyszukiwarka_filmow.html/connection", true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            ID: mainID.trim()
+        }));
+        var xhttp = new XMLHttpRequest();
+        var aaa;
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                aaa = JSON.parse(xhttp.responseText);
+                console.log(aaa[0].displayed_to)
+
+                
+                let movieTitle = e.parentElement.querySelector(".company > a").innerHTML;
+                let movieReleaseDate = e.parentElement.querySelector(".film").innerHTML;
+                let movieActorsNumber = e.parentElement.querySelector(".release-date").innerHTML;
+                document.querySelector("#id_name_v").value = aaa[0].id;
+                document.querySelector("#id_wf_p_v").value = aaa[0].studio_id;
+                document.querySelector("#id_f_p_v").value = aaa[0].film_id;
+                document.querySelector("#displayed_from_v").value = aaa[0].displayed_to.slice(0,10);
+                document.querySelector("#main_studio_v").checked = aaa[0].main_studio;
+                document.querySelector("#displayed_to_v").value = aaa[0].displayed_from.slice(0,10);
+            }
+        };
+        xhttp.open("GET", "/wyszukiwarka_filmow.html/connection", true);
+        xhttp.send();
+    }
+</script>
